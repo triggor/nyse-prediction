@@ -50,7 +50,7 @@ where:
 
 - $b_0$ is the Return on equity when all the predictors are 0 (the intercept).
 - $b_1$ is how much the ROE increases/decreases for each unit increase in Accounts Payable (the slope for Accounts Payable).
-- $b_2$ is how much the ROE increases/decrease for each additional income/ expense item (the slope for Accounts Receivable) and similar for other predictors.
+- $b_2$ is how much the ROE increases/decrease for each change in Accounts Receivable (the slope for Accounts Receivable) and similar for other predictors.
 
 - Fitted the regression model to the training dataset.
 
