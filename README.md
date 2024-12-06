@@ -42,7 +42,7 @@ After Tax ROE
 
 $$
 \text{After Tax ROE} = b_0 + b_1 \times (\text{Accounts Payable}) + b_2 \times (\text{Accounts Receivable}) + b_3 \times (\text{Add'l income/expense items})+ b_4 \times (\text{Capital Expenditures})+ \\ 
-b_5 \times (\text{Capital Surplus})+ b_6 \times (\text{Cash Ratio})+ b_7 \times (\text{Pre-Tax ROE})+ b_8 \times (\text{Profit Margin})+ b_9 \times (\text{Pre-Tax Margin})\\+ b_{10} \times (\text{Misc. Stocks})+ b_{11} \times (\text{Changes in Inventories})+ b_{12} \times (\text{Inventory})+ b_{13} \times (\text{Other Financing Activities})\\ +b_{14} \times (\text{Current Ratio})+b_{15} \times (\text{Gross Margin})+b_{16} \times (\text{Income Tax})+b_{17} \times (\text{Minority Interest})+b_{18} \times (\text{Net Income})\\+b_{19} \times (\text{Net Income Applicable to Common Shareholders})+b_{20} \times (\text{Operating Margin})\\ +b_{21} \times (\text{Equity Earnings/Loss Unconsolidated Subsidiary})
+b_5 \times (\text{Capital Surplus})+ b_6 \times (\text{Cash Ratio})+ b_7 \times (\text{Pre-Tax ROE})+ b_8 \times (\text{Profit Margin})+ b_9 \times (\text{Pre-Tax Margin})\\+ b_{10} \times (\text{Misc. Stocks})+ b_{11} \times (\text{Changes in Inventories})+ b_{12} \times (\text{Inventory})+ b_{13} \times (\text{Other Financing Activities})\\ +b_{14} \times (\text{Current Ratio})+b_{15} \times (\text{Gross Margin})+b_{16} \times (\text{Income Tax})+b_{17} \times (\text{Minority Interest})+b_{18} \times (\text{Net Income})\\+b_{19} \times (\text{Net Income Applicable to Common Shareholders})+b_{20} \times (\text{Operating Margin})\ +b_{21} \times (\text{Equity Earnings/Loss Unconsolidated Subsidiary})
 $$
 
 where:
