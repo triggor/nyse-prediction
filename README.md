@@ -3,8 +3,7 @@
 ## Team Members
 
 - Sidra Zain [SidraOB](https://github.com/SidraOB)
-- Kavian Mashayekhi
-- Igor Tryhub
+- Igor T.
 - Mehran Hassanzadeh
 
 ## Project Overview
