@@ -68,6 +68,24 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 
 ![ROC curve](https://github.com/user-attachments/assets/11ef17f3-d664-40bd-b47f-292043d3c596)
 
+#### Model Evaluation
+
+![LSTM model evaluation metrics](https://github.com/user-attachments/assets/7e5d274e-35a8-44b4-92c4-643862073e50)
+
+#### Confusion Matrix
+
+![Confusion Matrix](https://github.com/user-attachments/assets/d7e59ca4-7cae-4017-be41-6a87c106fe78)
+
+#### ROC Curve
+
+![ROC](https://github.com/user-attachments/assets/97a18251-fbb7-43aa-ac06-26c0b3b1d40c)
+
+#### Classification Report
+
+Detailed classification report for the model.
+
+![classification report](https://github.com/user-attachments/assets/0607230b-8f35-4a29-8a19-2ea357b431fa)
+
 #### Challenges
 
 ### Conclusion
