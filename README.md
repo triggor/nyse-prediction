@@ -1,4 +1,4 @@
-# Stock Price Movement Prediction Using LSTM
+# Stock Price Trends Prediction Using LSTM
 
 ## Team Members
 
