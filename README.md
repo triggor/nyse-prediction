@@ -1,4 +1,4 @@
-# Stock Price Movement Prediction 
+# Stock Price Movement Prediction Using LSTM
 
 ## Team Members
 
@@ -10,7 +10,10 @@
 
 The goal of our project is to develop a predictive model that forecasts whether the closing price of an S&P 500 stock will increase or decrease on the next trading day based on opening price, highest price, lowest price, adjusted close price, and trading volume.
 
-### Potential Users of the Predictive Model
+### Target Audience
+
+- Financial Analysts and Traders looking for data-driven insights to enhance investment strategies and make more informed trading decisions.
+- Investors seeking tools to predict market trends and make well-informed decisions about their investments.
 
 ## Data Description
 
@@ -29,31 +32,44 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 
 ### Required Libraries
 
-**Pandas:** For data manipulation and analysis.
-**Numpy:** For numerical operations and handling arrays.
+**Pandas:** For data manipulation and analysis.  
+**Numpy:** For numerical operations and handling arrays.  
 **Scikit-learn:** For building and evaluating machine learning models.
 **Matplotlib.pyplot:** For creating visualizations like charts and plots.
 **Seaborn:** For statistical data visualization, providing an interface for creating complex visualizations easily.
 **Shap:** For model explainability, to analyze how individual features contribute to model predictions.
 
-### Data Preprocessing
+## Methodology
+
+#### Data Preprocessing
 
 - Target variable is created to predict if the next day's closing price will be higher (1) or lower (0) than the current day's closing price.
 - Addressed missing values, outliers, and inconsistencies within the dataset.
 - Created new features daily_return and volatility to enhance the predictive model.
 - Applied One Hot Encoding to encode the categorical column.
+- Numerical features are scaled using the StandardScaler to ensure that all features contribute equally to the model.
 
-### Exploratory Data Analysis (EDA)
+#### Exploratory Data Analysis (EDA)
 
 - Plotted histograms to visualize the distribution and identify patterns, skewness, or outliers in the data.
 - Computed the correlation matrix for selected numerical features and the target variable.
 - Visualized the correlations using a heatmap to understand relationships between features and the target.
 
+#### Model Selection and Training
 
-### Model Development 
+- An **LSTM-based neural network** is used for binary classification, where the model predicts whether the closing price will increase (1) or decrease (0) on the next day.
+- The model consists of two LSTM layers with dropout for regularization, followed by dense layers and a final sigmoid activation for binary classification.
+- The model is trained with early stopping to prevent overfitting. 
+- The training process is conducted over a maximum of 50 epochs with a batch size of 128.
 
-### Model Evaluation
+## Main Findings
 
 ### Results
+
+- As training progresses, both the training and validation loss gradually decrease, indicating that the model is learning and improving.
+- The validation accuracy shows a steady improvement, although it is still below 60%. This suggests that the model is able to make reasonable predictions, but there is room for improvement.
+- The training accuracy also shows a steady increase, reaching about 57% by epoch 25, while the validation accuracy stabilizes around 56%.
+
+#### Challenges
 
 ### Conclusion
