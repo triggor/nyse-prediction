@@ -1,4 +1,4 @@
-# Stock Price Trends Prediction Using LSTM
+# Stock Trend Analysis Using Deep Learning
 
 ## Team Members
 
