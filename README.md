@@ -1,58 +1,59 @@
-# Predicting After Tax Return on Equity (ROE) for NYSE listed Companies 
+# Stock Price Movement Prediction 
 
 ## Team Members
 
 - Sidra Zain [SidraOB](https://github.com/SidraOB)
-- Igor T.
-- Mehran Hassanzadeh
+- Igor T. 
+- Mehran Hassanzadeh 
 
 ## Project Overview
 
-The primary goal of this project is to develop a predictive model for After Tax Return on Equity (ROE) using key financial metrics. This analysis will focus on understanding how various financial indicators, including Accounts Payable, Accounts Receivable, Additional Income/Expense Items, Capital Expenditures, Capital Surplus, and Cash Ratio, influence ROE for companies listed on the New York Stock Exchange (NYSE).
+The goal of our project is to develop a predictive model that forecasts whether the closing price of an S&P 500 stock will increase or decrease on the next trading day based on opening price, highest price, lowest price, adjusted close price, and trading volume.
+
+### Potential Users of the Predictive Model
+
+## Data Description
+
+We are using stock prices dataset from [New York Stock Exchange](https://www.kaggle.com/datasets/dgawlik/nyse?resource=download&select=prices-split-adjusted.csv)
+The dataset covers the period from 2010 to the end of 2016 and includes stock data for 501 companies listed on the S&P 500 index. It consists of 851,264 individual data points, each representing daily stock market information for a specific company.
+
+Key features used for prediction include:
+
+- Opening Price
+- Highest Price
+- Lowest Price
+- Adjusted Close Price
+- Trading Volume
+
+The dataset includes adjustments for 140 stock splits, recorded in the file `prices-split-adjusted.csv`. Past prices are retroactively adjusted to match the current scale of the stock price after all the splits during the 2010–2016 period. This ensures that the historical prices are comparable to today's prices, making it easier to analyze the stock's performance over time.
+
+### Required Libraries
+
+**Pandas:** For data manipulation and analysis.
+**Numpy:** For numerical operations and handling arrays.
+**Scikit-learn:** For building and evaluating machine learning models.
+**Matplotlib.pyplot:** For creating visualizations like charts and plots.
+**Seaborn:** For statistical data visualization, providing an interface for creating complex visualizations easily.
+**Shap:** For model explainability, to analyze how individual features contribute to model predictions.
 
 ### Data Preprocessing
 
+- Target variable is created to predict if the next day's closing price will be higher (1) or lower (0) than the current day's closing price.
 - Addressed missing values, outliers, and inconsistencies within the dataset.
-- Ensured uniformity across different companies and time periods by standardizing metrics.
+- Created new features daily_return and volatility to enhance the predictive model.
+- Applied One Hot Encoding to encode the categorical column.
 
 ### Exploratory Data Analysis (EDA)
 
-- Conducted EDA to uncover trends, correlations, and patterns within the data.
-- Created visualizations to illustrate the relationships between financial metrics and ROE, highlighting potential drivers of performance.
+- Plotted histograms to visualize the distribution and identify patterns, skewness, or outliers in the data.
+- Computed the correlation matrix for selected numerical features and the target variable.
+- Visualized the correlations using a heatmap to understand relationships between features and the target.
 
-### Feature Selection
 
-- #### Tree-Based Feature Importance
-Utilized tree-based models to assess the correlation between various features and target variable.
-- #### Linear Regression for Non-Linearity
-Applied linear regression to capture non-linear relationships among the features.
+### Model Development 
 
-#### Selected Features 
+### Model Evaluation
 
-Accounts Payable, Accounts Receivable, Additional Income/Expense Items, Capital Expenditures, Capital Surplus, Cash Ratio
+### Results
 
-#### Target
-After Tax ROE
-
-### Predicting Return on equity (ROE) Using Multivariable Linear Regression Model
-
-- Split the dataset into 75% training and 25% test sets to evaluate the model's performance.
-- Developed a multivariable linear regression model to predict ROE based on selected features.
-**Model equation:** The equation for the multivariable regression is:
-
-$$
-\text{After Tax ROE} = b_0 + b_1 \times (\text{Accounts Payable}) + b_2 \times (\text{Accounts Receivable}) + b_3 \times (\text{Add'l income/expense items})+ b_4 \times (\text{Capital Expenditures})+ \\ 
-b_5 \times (\text{Capital Surplus})+ b_6 \times (\text{Cash Ratio})+ b_7 \times (\text{Pre-Tax ROE})+ b_8 \times (\text{Profit Margin})+ b_9 \times (\text{Pre-Tax Margin})\+ b_{10} \times (\text{Misc. Stocks})+ b_{11} \times (\text{Changes in Inventories})+ b_{12} \times (\text{Inventory})+ b_{13} \times (\text{Other Financing Activities})\ +b_{14} \times (\text{Current Ratio})+b_{15} \times (\text{Gross Margin})+b_{16} \times (\text{Income Tax})+b_{17} \times (\text{Minority Interest})+b_{18} \times (\text{Net Income})\+b_{19} \times (\text{Net Income Applicable to Common Shareholders})+b_{20} \times (\text{Operating Margin})\ +b_{21} \times (\text{Equity Earnings/Loss Unconsolidated Subsidiary})
-$$
-
-where:
-
-- $b_0$ is the Return on equity when all the predictors are 0 (the intercept).
-- $b_1$ is how much the ROE increases/decreases for each unit increase in Accounts Payable (the slope for Accounts Payable).
-- $b_2$ is how much the ROE increases/decrease for each change in Accounts Receivable (the slope for Accounts Receivable) and similar for other predictors.
-
-- Fitted the regression model to the training dataset.
-
-- Evaluated the model’s performance using Root Mean Squared Prediction Error (RMSPE). RMSPE of 8.51% indicates that the model predicting ROE for NYSE-listed companies is fairly accurate, but the error margin means there’s an average deviation of 8.51% between actual and predicted ROE values. Predicting ROE with 8.51% accuracy may be acceptable for broader market insights, but it could be considered high for high-frequency trading or risk management.
-
-- Analyzed the regression coefficients to understand how each variable influences ROE. Positive coefficients for Accounts payable, Add'l income/expense items, Capital Surplus, Cash Ratio, Pre-Tax ROE, Profit Margin, Misc. Stocks, Other Financing Activities, Net Income Applicable to Common Shareholders, Operating Margin, Equity Earnings/Loss Unconsolidated Subsidiary indicate that an increase in these predictors is associated with higher ROE.
+### Conclusion
