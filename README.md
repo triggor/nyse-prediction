@@ -66,7 +66,7 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 
 #### Plotting Learning Curve
 
-![Learning curve](https://github.com/triggor/nyse-prediction)
+![ROC curve](https://github.com/user-attachments/assets/11ef17f3-d664-40bd-b47f-292043d3c596)
 
 #### Challenges
 
