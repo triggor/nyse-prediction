@@ -54,7 +54,7 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 - An **LSTM-based neural network** is used for binary classification, where the model predicts whether the closing price will increase (1) or decrease (0) on the next day.
 - The model consists of two LSTM layers with dropout for regularization, followed by dense layers and a final sigmoid activation for binary classification.
 - The model is trained with early stopping to prevent overfitting. 
-- The training process is conducted over a maximum of 50 epochs with a batch size of 128.
+- The training process is conducted over a maximum of 300 epochs with a batch size of 512.
 
 ## Main Findings
 
@@ -62,19 +62,26 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 
 - As training progresses, both the training and validation loss gradually decrease, indicating that the model is learning and improving.
 - The validation accuracy shows a steady improvement, although it is still below 60%. This suggests that the model is able to make reasonable predictions, but there is room for improvement.
-- The training accuracy also shows a steady increase, reaching about 57% by epoch 25, while the validation accuracy stabilizes around 56%.
+- The training accuracy also shows a steady increase, reaching about 60% by epoch 153, while the validation accuracy stabilizes around 58%.
 
 #### Plotting Learning Curve
 
 ![ROC curve](https://github.com/user-attachments/assets/11ef17f3-d664-40bd-b47f-292043d3c596)
 
+The training accuracy increases steadily, reflecting the model's improving performance on the training data but the validation accuracy increases upto a certain point (around epoch 50) and then stabilizes. The gap between the traing and validation loss/accuracy suggests some level of overfitting. 
+
 #### Model Evaluation
 
 ![LSTM model evaluation metrics](https://github.com/user-attachments/assets/7e5d274e-35a8-44b4-92c4-643862073e50)
 
+The overall performance metrics showed that the model is not well optimized yet. Recall is particularly low. ROC-AUC being near 0.5 indicates the model struggles to differentiate between classes effectively.
+
 #### Confusion Matrix
 
 ![Confusion Matrix](https://github.com/user-attachments/assets/d7e59ca4-7cae-4017-be41-6a87c106fe78)
+
+The model struggles to identify "Increase (1)" cases, as shown by the high number of false negatives (40,407).
+The imbalance between true positives and false negatives suggests poor recall for class "Increase (1)."
 
 #### ROC Curve
 
@@ -86,9 +93,6 @@ Detailed classification report for the model.
 
 ![classification report](https://github.com/user-attachments/assets/0607230b-8f35-4a29-8a19-2ea357b431fa)
 
-#### Challenges
-
-### Conclusion
 
 ### Credits
 This project was developed collaboratively by the following team members:
