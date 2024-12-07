@@ -1,11 +1,5 @@
 # Stock Trend Analysis Using Deep Learning
 
-## Team Members
-
-- Sidra Zain [SidraOB](https://github.com/SidraOB)
-- Igor T. 
-- Mehran Hassanzadeh 
-
 ## Project Overview
 
 The goal of our project is to develop a predictive model that forecasts whether the closing price of an S&P 500 stock will increase or decrease on the next trading day based on opening price, highest price, lowest price, adjusted close price, and trading volume.
@@ -73,3 +67,25 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 #### Challenges
 
 ### Conclusion
+
+### Credits
+This project was developed collaboratively by the following team members:
+
+- **Igor T.**
+
+- Developed and set up the GitHub repository for the project.
+- Enhanced data cleaning and feature selection code, refining indicators to improve model performance.
+- Contributed to the preparation of visualizations for model results and performance metrics.
+
+- **Mehran Hassanzadeh**
+
+- Built the deep learning model using LSTM (Long Short-Term Memory) for stock price prediction.
+- Applied advanced techniques for model optimization and tuning to improve prediction accuracy.
+- Implemented additional evaluation methods (e.g., cross-validation, hyperparameter tuning) to better assess and compare the models' performance.
+- Designed and executed comprehensive Exploratory Data Analysis (EDA) to visualize data patterns, identify trends, and select key features for model building.
+
+- **Sidra Zain [SidraOB](https://github.com/SidraOB)**
+
+- Assisted in preprocessing the dataset.
+- Coordinated and contributed to the final testing and model deployment process.
+- Authored the README documentation to clearly communicate the project setup, implementation steps, and model evaluation.
