@@ -64,6 +64,10 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 - The validation accuracy shows a steady improvement, although it is still below 60%. This suggests that the model is able to make reasonable predictions, but there is room for improvement.
 - The training accuracy also shows a steady increase, reaching about 57% by epoch 25, while the validation accuracy stabilizes around 56%.
 
+#### Plotting Learning Curve
+
+![Learning curve](https://github.com/triggor/nyse-prediction)
+
 #### Challenges
 
 ### Conclusion
