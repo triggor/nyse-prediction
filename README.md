@@ -56,6 +56,8 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 - The model is trained with early stopping to prevent overfitting. 
 - The training process is conducted over a maximum of 300 epochs with a batch size of 512.
 
+![image](https://github.com/user-attachments/assets/889573ac-72a4-4a1f-88b1-c4dc2e300c4e)
+
 ## Main Findings
 
 ### Results
