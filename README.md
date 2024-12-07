@@ -87,13 +87,6 @@ The imbalance between true positives and false negatives suggests poor recall fo
 
 ![ROC](https://github.com/user-attachments/assets/97a18251-fbb7-43aa-ac06-26c0b3b1d40c)
 
-#### Classification Report
-
-Detailed classification report for the model.
-
-![classification report](https://github.com/user-attachments/assets/0607230b-8f35-4a29-8a19-2ea357b431fa)
-
-
 ### Credits
 This project was developed collaboratively by the following team members:
 
