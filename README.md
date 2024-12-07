@@ -34,10 +34,10 @@ The dataset includes adjustments for 140 stock splits, recorded in the file `pri
 
 **Pandas:** For data manipulation and analysis.  
 **Numpy:** For numerical operations and handling arrays.  
-**Scikit-learn:** For building and evaluating machine learning models.
-**Matplotlib.pyplot:** For creating visualizations like charts and plots.
-**Seaborn:** For statistical data visualization, providing an interface for creating complex visualizations easily.
-**Shap:** For model explainability, to analyze how individual features contribute to model predictions.
+**Scikit-learn:** For building and evaluating machine learning models.   
+**Matplotlib.pyplot:** For creating visualizations like charts and plots.    
+**Seaborn:** For statistical data visualization, providing an interface for creating complex visualizations easily.     
+**Shap:** For model explainability, to analyze how individual features contribute to model predictions.     
 
 ## Methodology
 
