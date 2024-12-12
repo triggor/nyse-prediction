@@ -2,8 +2,6 @@
 
 ## Project Overview
 
-The goal of our project is to develop a predictive model that forecasts whether the closing price of an S&P 500 stock will increase or decrease on the next trading day based on opening price, highest price, lowest price, adjusted close price, and trading volume.
-
 ### Target Audience
 
 - Financial Analysts and Traders looking for data-driven insights to enhance investment strategies and make more informed trading decisions.
