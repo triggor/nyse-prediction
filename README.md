@@ -1,58 +1,110 @@
-# Predicting After Tax Return on Equity (ROE) for NYSE listed Companies 
-
-## Team Members
-
-- Sidra Zain [SidraOB](https://github.com/SidraOB)
-- Igor T.
-- Mehran Hassanzadeh
+# Stock Trend Analysis Using Deep Learning
 
 ## Project Overview
 
-The primary goal of this project is to develop a predictive model for After Tax Return on Equity (ROE) using key financial metrics. This analysis will focus on understanding how various financial indicators, including Accounts Payable, Accounts Receivable, Additional Income/Expense Items, Capital Expenditures, Capital Surplus, and Cash Ratio, influence ROE for companies listed on the New York Stock Exchange (NYSE).
+### Target Audience
 
-### Data Preprocessing
+- Financial Analysts and Traders looking for data-driven insights to enhance investment strategies and make more informed trading decisions.
+- Investors seeking tools to predict market trends and make well-informed decisions about their investments.
 
+## Data Description
+
+We are using stock prices dataset from [New York Stock Exchange](https://www.kaggle.com/datasets/dgawlik/nyse?resource=download&select=prices-split-adjusted.csv)
+The dataset covers the period from 2010 to the end of 2016 and includes stock data for 501 companies listed on the S&P 500 index. It consists of 851,264 individual data points, each representing daily stock market information for a specific company.
+
+Key features used for prediction include:
+
+- Opening Price
+- Highest Price
+- Lowest Price
+- Adjusted Close Price
+- Trading Volume
+
+The dataset includes adjustments for 140 stock splits, recorded in the file `prices-split-adjusted.csv`. Past prices are retroactively adjusted to match the current scale of the stock price after all the splits during the 2010–2016 period. This ensures that the historical prices are comparable to today's prices, making it easier to analyze the stock's performance over time.
+
+### Required Libraries
+
+**Pandas:** For data manipulation and analysis.  
+**Numpy:** For numerical operations and handling arrays.  
+**Scikit-learn:** For building and evaluating machine learning models.   
+**Matplotlib.pyplot:** For creating visualizations like charts and plots.    
+**Seaborn:** For statistical data visualization, providing an interface for creating complex visualizations easily.     
+**Shap:** For model explainability, to analyze how individual features contribute to model predictions.     
+
+## Methodology
+
+#### Data Preprocessing
+
+- Target variable is created to predict if the next day's closing price will be higher (1) or lower (0) than the current day's closing price.
 - Addressed missing values, outliers, and inconsistencies within the dataset.
-- Ensured uniformity across different companies and time periods by standardizing metrics.
+- Created new features daily_return and volatility to enhance the predictive model.
+- Applied One Hot Encoding to encode the categorical column.
+- Numerical features are scaled using the StandardScaler to ensure that all features contribute equally to the model.
 
-### Exploratory Data Analysis (EDA)
+#### Exploratory Data Analysis (EDA)
 
-- Conducted EDA to uncover trends, correlations, and patterns within the data.
-- Created visualizations to illustrate the relationships between financial metrics and ROE, highlighting potential drivers of performance.
+- Plotted histograms to visualize the distribution and identify patterns, skewness, or outliers in the data.
+- Computed the correlation matrix for selected numerical features and the target variable.
+- Visualized the correlations using a heatmap to understand relationships between features and the target.
 
-### Feature Selection
+#### Model Selection and Training
 
-- #### Tree-Based Feature Importance
-Utilized tree-based models to assess the correlation between various features and target variable.
-- #### Linear Regression for Non-Linearity
-Applied linear regression to capture non-linear relationships among the features.
+- An **LSTM-based neural network** is used for binary classification, where the model predicts whether the closing price will increase (1) or decrease (0) on the next day.
+- The model consists of two LSTM layers with dropout for regularization, followed by dense layers and a final sigmoid activation for binary classification.
+- The model is trained with early stopping to prevent overfitting. 
+- The training process is conducted over a maximum of 300 epochs with a batch size of 512.
 
-#### Selected Features 
+![image](https://github.com/user-attachments/assets/889573ac-72a4-4a1f-88b1-c4dc2e300c4e)
 
-Accounts Payable, Accounts Receivable, Additional Income/Expense Items, Capital Expenditures, Capital Surplus, Cash Ratio
+## Main Findings
 
-#### Target
-After Tax ROE
+### Results
 
-### Predicting Return on equity (ROE) Using Multivariable Linear Regression Model
+- As training progresses, both the training and validation loss gradually decrease, indicating that the model is learning and improving.
+- The validation accuracy shows a steady improvement, although it is still below 60%. This suggests that the model is able to make reasonable predictions, but there is room for improvement.
+- The training accuracy also shows a steady increase, reaching about 60% by epoch 153, while the validation accuracy stabilizes around 58%.
 
-- Split the dataset into 75% training and 25% test sets to evaluate the model's performance.
-- Developed a multivariable linear regression model to predict ROE based on selected features.
-**Model equation:** The equation for the multivariable regression is:
+#### Plotting Learning Curve
 
-$$
-\text{After Tax ROE} = b_0 + b_1 \times (\text{Accounts Payable}) + b_2 \times (\text{Accounts Receivable}) + b_3 \times (\text{Add'l income/expense items})+ b_4 \times (\text{Capital Expenditures})+ \\ 
-b_5 \times (\text{Capital Surplus})+ b_6 \times (\text{Cash Ratio})+ b_7 \times (\text{Pre-Tax ROE})+ b_8 \times (\text{Profit Margin})+ b_9 \times (\text{Pre-Tax Margin})\\+ b_{10} \times (\text{Misc. Stocks})+ b_{11} \times (\text{Changes in Inventories})+ b_{12} \times (\text{Inventory})+ b_{13} \times (\text{Other Financing Activities})\\ +b_{14} \times (\text{Current Ratio})+b_{15} \times (\text{Gross Margin})+b_{16} \times (\text{Income Tax})+b_{17} \times (\text{Minority Interest})+b_{18} \times (\text{Net Income})\\+b_{19} \times (\text{Net Income Applicable to Common Shareholders})+b_{20} \times (\text{Operating Margin})\\ +b_{21} \times (\text{Equity Earnings/Loss Unconsolidated Subsidiary})
-$$
+![ROC curve](https://github.com/user-attachments/assets/11ef17f3-d664-40bd-b47f-292043d3c596)
 
-where:
+The training accuracy increases steadily, reflecting the model's improving performance on the training data but the validation accuracy increases upto a certain point (around epoch 50) and then stabilizes. The gap between the traing and validation loss/accuracy suggests some level of overfitting. 
 
-- $b_0$ is the Return on equity when all the predictors are 0 (the intercept).
-- $b_1$ is how much the ROE increases/decreases for each unit increase in Accounts Payable (the slope for Accounts Payable).
-- $b_2$ is how much the ROE increases/decrease for each change in Accounts Receivable (the slope for Accounts Receivable) and similar for other predictors.
+#### Model Evaluation
 
-- Fitted the regression model to the training dataset.
+![LSTM model evaluation metrics](https://github.com/user-attachments/assets/7e5d274e-35a8-44b4-92c4-643862073e50)
 
-- Evaluated the model’s performance using Root Mean Squared Prediction Error (RMSPE). RMSPE of 8.51% indicates that the model predicting ROE for NYSE-listed companies is fairly accurate, but the error margin means there’s an average deviation of 8.51% between actual and predicted ROE values. Predicting ROE with 8.51% accuracy may be acceptable for broader market insights, but it could be considered high for high-frequency trading or risk management.
+The overall performance metrics showed that the model is not well optimized yet. Recall is particularly low. ROC-AUC being near 0.5 indicates the model struggles to differentiate between classes effectively.
 
-- Analyzed the regression coefficients to understand how each variable influences ROE. Positive coefficients for Accounts payable, Add'l income/expense items, Capital Surplus, Cash Ratio, Pre-Tax ROE, Profit Margin, Misc. Stocks, Other Financing Activities, Net Income Applicable to Common Shareholders, Operating Margin, Equity Earnings/Loss Unconsolidated Subsidiary indicate that an increase in these predictors is associated with higher ROE.
+#### Confusion Matrix
+
+![Confusion Matrix](https://github.com/user-attachments/assets/d7e59ca4-7cae-4017-be41-6a87c106fe78)
+
+The model struggles to identify "Increase (1)" cases, as shown by the high number of false negatives (40,407).
+The imbalance between true positives and false negatives suggests poor recall for class "Increase (1)."
+
+#### ROC Curve
+
+![ROC](https://github.com/user-attachments/assets/97a18251-fbb7-43aa-ac06-26c0b3b1d40c)
+
+### Credits
+This project was developed collaboratively by the following team members:
+
+- **Igor T.**
+
+- Developed and set up the GitHub repository for the project.
+- Enhanced data cleaning and feature selection code, refining indicators to improve model performance.
+- Contributed to the preparation of visualizations for model results and performance metrics.
+
+- **Mehran Hassanzadeh**
+
+- Built the deep learning model using LSTM (Long Short-Term Memory) for stock price prediction.
+- Applied advanced techniques for model optimization and tuning to improve prediction accuracy.
+- Implemented additional evaluation methods (e.g., cross-validation, hyperparameter tuning) to better assess and compare the models' performance.
+- Designed and executed comprehensive Exploratory Data Analysis (EDA) to visualize data patterns, identify trends, and select key features for model building.
+
+- **Sidra Zain [SidraOB](https://github.com/SidraOB)**
+
+- Assisted in preprocessing the dataset.
+- Coordinated and contributed to the final testing and model deployment process.
+- Authored the README documentation to clearly communicate the project setup, implementation steps, and model evaluation.
